@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { share } from 'rxjs/operators/share';
+import { share } from 'rxjs/operators';
 declare var $: any;
 @Component({
   selector: 'app-list-catalogs',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BASE_URL_SERVICE } from '../../constants';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class OptionsService {
