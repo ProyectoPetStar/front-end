@@ -143,7 +143,7 @@ export class PonderacionMasivaComponent implements OnInit, AfterViewInit  {
 
       //Se leyó correctamente el file
       reader.onload = () => {
-        this.archivoCsv = reader.result.split(',')[1];
+        this.archivoCsv = (<string>reader.result).split(',')[1];
       }
 
       //Ocurrio un error al leer file

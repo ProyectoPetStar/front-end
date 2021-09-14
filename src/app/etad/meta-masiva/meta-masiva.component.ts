@@ -134,7 +134,7 @@ export class MetaMasivaComponent implements OnInit {
 
       //Se leyó correctamente el file
       reader.onload = () => {
-        this.archivoCsv = reader.result.split(',')[1];
+        this.archivoCsv = (<string>reader.result).split(',')[1];
       }
 
       //Ocurrio un error al leer file
