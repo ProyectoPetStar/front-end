@@ -28,7 +28,7 @@ declare var Materialize: any;
 })
 export class PresentacionComponent implements OnInit {
 
-  @ViewChild('formato') rpt_enlace: ElementRef;
+  @ViewChild('formato', { static: false }) rpt_enlace: ElementRef;
   
   private TOTAL: number;
   public type_animation: string;

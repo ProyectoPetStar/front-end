@@ -6,8 +6,8 @@ import { MaterializeModule } from 'angular2-materialize';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { OptionsComponent } from './options/options.component';
 import { AuthGuardVideoWall } from '../auth/auth.guard.video.wall';
-import { FormatoEnlaceComponent } from '../../app/etad/formato-enlace/formato-enlace.component';
 import { PipesCustomModule } from '../pipes/pipes.custom.module';
+import { SharedModule } from '../@shared/@shared.module';
 /* expectedRole: number Es el id del rol que se encuentra en la base de datos */
 const routesVideoWall: Routes = [
   {
@@ -36,11 +36,12 @@ const routesVideoWall: Routes = [
     ReactiveFormsModule, 
     FormsModule,
     PipesCustomModule,
-    RouterModule.forChild(routesVideoWall)
+    RouterModule.forChild(routesVideoWall),
+    SharedModule
   ],
   providers: [
     AuthGuardVideoWall
   ],
-  declarations: [PresentacionComponent, OptionsComponent, FormatoEnlaceComponent]
+  declarations: [PresentacionComponent, OptionsComponent]
 })
 export class VideowallModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PetReporteEnlace } from '../../models/pet-reporte-enlace';
-import { FormatoEnlaceService } from '../../@shared/formato-enlace/formato-enlace.service';
+import { FormatoEnlaceService } from './formato-enlace.service';
 import swal from 'sweetalert2';
 import { AuthService } from '../../auth/auth.service';
 import { isNum } from '../../utils';

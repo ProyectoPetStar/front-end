@@ -33,8 +33,8 @@ import { RptBonosComponent } from './rpt-bonos/rpt-bonos.component';
 import { RptDetalleBonosComponent } from './rpt-detalle-bonos/rpt-detalle-bonos.component';
 import { RptPosicionTrimestralComponent } from './rpt-posicion-trimestral/rpt-posicion-trimestral.component';
 import { RptPosicionAnualComponent } from './rpt-posicion-anual/rpt-posicion-anual.component';
-import { FormatoEnlaceComponent } from './formato-enlace/formato-enlace.component';
 import { ListaValidacionComponent } from './lista-validacion/lista-validacion.component';
+import { SharedModule } from '../@shared/@shared.module';
 
 
 
@@ -176,7 +176,8 @@ const routes: Routes = [
     FormsModule,
     NgPipesModule,
     PipesCustomModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   declarations: [
     OptionsComponent,
@@ -206,7 +207,6 @@ const routes: Routes = [
     RptDetalleBonosComponent,
     RptPosicionTrimestralComponent,
     RptPosicionAnualComponent,
-    FormatoEnlaceComponent,
     ListaValidacionComponent
   ],
   providers: [
