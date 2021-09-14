@@ -30,14 +30,14 @@ import { RolesComponent } from './security/roles/roles.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard] },
-  { path: 'videowall', loadChildren: './videowall/videowall.module#VideowallModule', canActivate: [AuthGuard] },
+  { path: 'videowall', loadChildren: () => import('./videowall/videowall.module').then(m => m.VideowallModule), canActivate: [AuthGuard] },
   {
     path: 'home', component: HomeComponent, canActivate: [AuthGuard], children: [
       { path: '', component: MenuPrincipalComponent },
-      { path: 'usuarios', loadChildren: './users/users.module#UsersModule' },
-      { path: 'oee', loadChildren: './oee/oee.module#OeeModule' },
-      { path: 'etad', loadChildren: './etad/etad.module#EtadModule' },
-      { path: 'ishikawa', loadChildren: './ishikawa/ishikawa.module#IshikawaModule' },
+      { path: 'usuarios', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+      { path: 'oee', loadChildren: () => import('./oee/oee.module').then(m => m.OeeModule) },
+      { path: 'etad', loadChildren: () => import('./etad/etad.module').then(m => m.EtadModule) },
+      { path: 'ishikawa', loadChildren: () => import('./ishikawa/ishikawa.module').then(m => m.IshikawaModule) },
       { path: 'seguridad', component: SecurityComponent },
       // { path: 'seguridad/perfil-roles/:id_perfil' ,  component: RolesComponent },
       {
