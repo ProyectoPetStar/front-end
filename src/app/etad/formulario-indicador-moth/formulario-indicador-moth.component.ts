@@ -236,7 +236,8 @@ export class FormularioIndicadorMothComponent implements OnInit {
         cancelButtonText: 'Cancelar',
         confirmButtonText: 'Si!',
         allowOutsideClick: false,
-        allowEnterKey: false
+        allowEnterKey: false,
+        useRejections: true  
       }).then((result) => {
         /*
          * Si acepta
@@ -325,9 +326,10 @@ export class FormularioIndicadorMothComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      inputValidator: (value) => {
+      useRejections: true,
+      preConfirm: (value) => {
 
-        return new Promise((resolve) => {
+        return new Promise<string|void>((resolve) => {
           this.formConsultaPeriodo.reset();
           this.submitted = false;
           this.status = "inactive";
@@ -339,7 +341,7 @@ export class FormularioIndicadorMothComponent implements OnInit {
             this.anioSeleccionado = value;
             this.meses = this.periodos.filter(el => el.anio == this.anioSeleccionado);
           } else {
-            resolve('Seleccione un año')
+            resolve('Seleccione un año');
           }
         })
       }

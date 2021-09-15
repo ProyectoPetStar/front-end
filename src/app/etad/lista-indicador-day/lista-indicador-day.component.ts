@@ -214,9 +214,9 @@ export class ListaIndicadorDayComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      inputValidator: (value) => {
-
-        return new Promise((resolve) => {
+      useRejections: true,
+      preConfirm: (value) => {
+        return new Promise<string|void>((resolve) => {
 
           this.formConsultaPeriodo.controls.idPeriodo.reset();
 
@@ -233,7 +233,7 @@ export class ListaIndicadorDayComponent implements OnInit {
           this.submitted = false;
           this.status = "inactive";
           this.datos_tabla = false;
-
+ 
 
           if (value != '') {
             resolve();

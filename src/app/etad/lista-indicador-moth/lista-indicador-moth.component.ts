@@ -187,9 +187,10 @@ export class ListaIndicadorMothComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      inputValidator: (value) => {
+      useRejections: true,  
+      preConfirm: (value) => {
 
-        return new Promise((resolve) => {
+        return new Promise<string|void>((resolve) => {
           this.formConsultaPeriodo.controls.idPeriodo.reset();
 
           if (!this.no_permiso_edicion) {

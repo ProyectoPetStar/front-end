@@ -207,9 +207,9 @@ export class ListaValidacionComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      inputValidator: (value) => {
-
-        return new Promise((resolve) => {
+      useRejections: true ,
+      preConfirm: (value) => {
+        return new Promise<string|void>((resolve) => {
          
           this.formConsultaPeriodo.controls.idPeriodo.reset();
 

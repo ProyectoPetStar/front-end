@@ -228,9 +228,10 @@ export class ListaPonderacionComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      inputValidator: (value) => {
+      useRejections: true ,
+      preConfirm: (value) => {
 
-        return new Promise((resolve) => {
+        return new Promise<string|void>((resolve) => {
 
           this.submitted = false;
           this.status = "inactive";

@@ -231,7 +231,8 @@ export class FormularioDetalleComponent implements OnInit {
         cancelButtonText: 'Cancelar',
         confirmButtonText: 'Si!',
         allowOutsideClick: false,
-        allowEnterKey: false
+        allowEnterKey: false,
+        useRejections: true  
       }).then((result) => {
         /*
          * Si acepta
