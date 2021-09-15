@@ -24,7 +24,7 @@ declare var Materialize: any;
   selector: 'app-lista-ponderacion',
   templateUrl: './lista-ponderacion.component.html',
   providers: [ListaPonderacionService],
-  styleUrls: ['/lista-ponderacion.component.css'],
+  styleUrls: ['./lista-ponderacion.component.css'],
   animations: [
     trigger('visibility', [
       state('inactive', style({

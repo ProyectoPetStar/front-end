@@ -15,7 +15,7 @@ declare var Materialize: any;
   selector: 'app-rpt-graficas-kpi',
   templateUrl: './rpt-graficas-kpi.component.html',
   providers: [RptGraficasKpiService],
-  styleUrls: ['/rpt-graficas-kpi.component.css']
+  styleUrls: ['./rpt-graficas-kpi.component.css']
 })
 export class RptGraficasKpiComponent implements OnInit {
 
