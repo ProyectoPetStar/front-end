@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { tokenNotExpired } from 'angular2-jwt';
-import * as jwt_decode  from 'jwt-decode';
+import { JwtHelperService  } from '@auth0/angular-jwt';
 
 @Injectable()
 export class AuthService {
+
+  constructor(private jwtHelper: JwtHelperService){}
+
   public getToken(): string {
     return localStorage.getItem('token');
   }
@@ -12,45 +14,45 @@ export class AuthService {
     const token = this.getToken();
     // return a boolean reflecting 
     // whether or not the token is expired
-    return tokenNotExpired(null, token);
+    return !this.jwtHelper.isTokenExpired(token);
     
   }
 
   public getIdUsuario(): number{
-     return jwt_decode(this.getToken()).sub || -1;
+     return this.jwtHelper.decodeToken(this.getToken()).sub || -1;
      
   }
 
   public getRolesOee():string{
-    return jwt_decode(this.getToken()).roles_oee || "0";
+    return this.jwtHelper.decodeToken(this.getToken()).roles_oee || "0";
   }
   public getRolesEtad():string{
-    return jwt_decode(this.getToken()).roles_etad || "0";
+    return this.jwtHelper.decodeToken(this.getToken()).roles_etad || "0";
   }
   public getRolesIshikawa():string{
-    return jwt_decode(this.getToken()).roles_ishikawa || "0";
+    return this.jwtHelper.decodeToken(this.getToken()).roles_ishikawa || "0";
   }
   public getRolesGenerales():string{
-    return jwt_decode(this.getToken()).roles_generales || "0";
+    return this.jwtHelper.decodeToken(this.getToken()).roles_generales || "0";
   }
   public getRolesVideoWall():string{
-    return jwt_decode(this.getToken()).roles_videowall || "0";
+    return this.jwtHelper.decodeToken(this.getToken()).roles_videowall || "0";
   }
 
   public getId_Grupo():number{
-    return jwt_decode(this.getToken()).id_grupo || -1;
+    return this.jwtHelper.decodeToken(this.getToken()).id_grupo || -1;
   }
 
   public getId_Linea():number{
-    return jwt_decode(this.getToken()).id_linea || -1;
+    return this.jwtHelper.decodeToken(this.getToken()).id_linea || -1;
   }
 
   public getId_GpoLinea():number{
-    return jwt_decode(this.getToken()).id_grupo_linea || -1;
+    return this.jwtHelper.decodeToken(this.getToken()).id_grupo_linea || -1;
   }
 
   public getIdEtad():number{
-    return jwt_decode(this.getToken()).id_etad || -1;
+    return this.jwtHelper.decodeToken(this.getToken()).id_etad || -1;
   }
 
 /**
@@ -62,7 +64,7 @@ export class AuthService {
  */
   public permissionEdit(idPerfil:number):boolean{
 
-    let perfiles:string = jwt_decode(this.getToken()).perfiles || "-1";
+    let perfiles:string = this.jwtHelper.decodeToken(this.getToken()).perfiles || "-1";
     let idPerfiles = perfiles.split(",").map(el=>parseInt(el));
     return (idPerfiles.indexOf(idPerfil) == -1);
   }

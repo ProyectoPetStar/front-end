@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from './auth/token.interceptor';
+// import { HTTP_INTERCEPTORS } from '@angular/common/http';
+// import { TokenInterceptor } from './auth/token.interceptor';
+import { JwtModule } from "@auth0/angular-jwt";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MaterializeModule } from 'angular2-materialize';
@@ -25,7 +26,9 @@ import { FormularioDetalleComponent } from './catalogos-generales/formulario-det
 import { SecurityComponent } from './security/security.component';
 import { RolesComponent } from './security/roles/roles.component';
 
-
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -84,18 +87,25 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NgPipesModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes, { useHash: true }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: [''],
+        disallowedRoutes: [''],
+      },
+    })
   ],
   providers: [
     AuthService,
     NotAuthGuard,
     AuthGuardUsers,
     AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 
