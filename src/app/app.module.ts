@@ -87,7 +87,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NgPipesModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes, { useHash: true }),
+    RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' }),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
