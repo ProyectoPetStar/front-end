@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../../models/user';
-import { BASE_URL_SERVICE } from '../../constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ListEtadUsersService {
-  private URL = BASE_URL_SERVICE + '/Users';
+  private URL = environment.BASE_URL_SERVICE + '/Users';
 
   constructor(private http: HttpClient) { }
 

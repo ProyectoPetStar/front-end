@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../../constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class RptDetalladoFallasService {
 
-  private URL = BASE_URL_SERVICE + '/Reportes';
+  private URL = environment.BASE_URL_SERVICE + '/Reportes';
 
   constructor(private http: HttpClient) { }
 

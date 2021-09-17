@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../../constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class MetaManualService {
@@ -9,7 +9,7 @@ export class MetaManualService {
    /* 
    * URL del servicio del componente
    */
-  private URL = BASE_URL_SERVICE + '/ETADMetas';
+  private URL = environment.BASE_URL_SERVICE + '/ETADMetas';
 
 
   constructor(private http: HttpClient) { }

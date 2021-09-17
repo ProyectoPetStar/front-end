@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BASE_URL_SERVICE } from '../../constants';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class OptionsService {
@@ -10,7 +10,7 @@ export class OptionsService {
    * URL del servicio del componente
    */ 
 
-  private URL = BASE_URL_SERVICE + '/videoWall';
+  private URL = environment.BASE_URL_SERVICE + '/videoWall';
 
   constructor(private http: HttpClient) { }
     /*

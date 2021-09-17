@@ -3,12 +3,12 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError, retry } from 'rxjs/operators';
-import { BASE_URL_SERVICE } from '../constants';
 import { User } from '../models/user';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class LoginService {
-  private URL = BASE_URL_SERVICE + '/Login';
+  private URL = environment.BASE_URL_SERVICE + '/Login';
   
   
   constructor(private http: HttpClient) { }

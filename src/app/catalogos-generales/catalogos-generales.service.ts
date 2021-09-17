@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../constants';
+import { environment } from '../../environments/environment';
 import { Catalogo } from '../models/catalogo';
 import { Linea } from '../models/linea';
 
 @Injectable()
 export class CatalogosGeneralesService {
 
-  private URL = BASE_URL_SERVICE + '/Catalogos';
-  private URL_ETAD = BASE_URL_SERVICE + '/EtadCatalogos';
-  private URL_LINEA = BASE_URL_SERVICE + '/Lineas';
+  private URL = environment.BASE_URL_SERVICE + '/Catalogos';
+  private URL_ETAD = environment.BASE_URL_SERVICE + '/EtadCatalogos';
+  private URL_LINEA = environment.BASE_URL_SERVICE + '/Lineas';
 
   constructor(private http: HttpClient) { }
 

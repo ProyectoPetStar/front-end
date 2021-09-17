@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { Catalogo } from '../../../models/catalogo';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../../../constants';
 import { Equipo } from '../../../models/equipo';
 import { Producto } from '../../../models/producto';
 import { RazonParo } from '../../../models/razon-paro';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class FormularioDetalleServiceService {
 
-  private URL = BASE_URL_SERVICE + '/Catalogos';
-  private URL_EQUIPOS = BASE_URL_SERVICE + '/Equipos';
-  private URL_PRODUCTOS= BASE_URL_SERVICE + '/Productos';
-  private URL_RAZON = BASE_URL_SERVICE + '/RazonParo';
+  private URL = environment.BASE_URL_SERVICE + '/Catalogos';
+  private URL_EQUIPOS = environment.BASE_URL_SERVICE + '/Equipos';
+  private URL_PRODUCTOS= environment.BASE_URL_SERVICE + '/Productos';
+  private URL_RAZON = environment.BASE_URL_SERVICE + '/RazonParo';
 
   constructor(private http: HttpClient) { }
   

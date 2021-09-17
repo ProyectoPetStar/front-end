@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../../constants';
 import { User } from '../../models/user';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class PerfilService {
 
-  private URL = BASE_URL_SERVICE + '/Users';
+  private URL = environment.BASE_URL_SERVICE + '/Users';
 
   constructor(private http: HttpClient) { }
 

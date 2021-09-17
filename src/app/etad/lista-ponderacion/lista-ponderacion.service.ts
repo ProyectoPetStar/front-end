@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Forecast } from '../../models/forecast';
-import { BASE_URL_SERVICE } from '../../constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ListaPonderacionService {
 
-  private URL = BASE_URL_SERVICE + '/EtadPonderacion';
+  private URL = environment.BASE_URL_SERVICE + '/EtadPonderacion';
 
   constructor(private http: HttpClient) { }
 

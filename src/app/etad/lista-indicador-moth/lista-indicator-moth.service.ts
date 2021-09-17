@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../../constants';
 import { MetaKpi } from '../../models/meta-kpi';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable()
@@ -11,7 +11,7 @@ export class ListaIndicatorMothService {
    /* 
    * URL del servicio del componente
    */
-  private URL = BASE_URL_SERVICE + '/EtadIndicadores';
+  private URL = environment.BASE_URL_SERVICE + '/EtadIndicadores';
 
 
   constructor(private http: HttpClient) { }

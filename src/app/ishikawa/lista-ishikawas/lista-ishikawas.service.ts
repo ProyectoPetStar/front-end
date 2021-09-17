@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../../constants';
 import { PetIshikawa } from '../../models/pet-ishikawa';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ListaIshikawasService {
 
-  private URL = BASE_URL_SERVICE + '/Ishikawa';
+  private URL = environment.BASE_URL_SERVICE + '/Ishikawa';
 
   constructor(private http: HttpClient) { }
 

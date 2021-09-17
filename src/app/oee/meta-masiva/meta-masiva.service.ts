@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 // import { User } from '../../models/user';
-import { BASE_URL_SERVICE } from '../../constants';
 
 @Injectable()
 export class MetaMasivaService {
 
-  private URL = BASE_URL_SERVICE + '/UploadFile';
+  private URL = environment.BASE_URL_SERVICE + '/UploadFile';
 
   constructor(private http: HttpClient) { }
 

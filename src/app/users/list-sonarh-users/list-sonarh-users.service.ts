@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserSonarh } from '../../models/user-sonarh';
-import { BASE_URL_SERVICE } from '../../constants';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable()
 export class ListSonarhUsersService {
-  private URL = BASE_URL_SERVICE + '/Users';
+  private URL = environment.BASE_URL_SERVICE + '/Users';
 
   constructor(private http: HttpClient) { }
 

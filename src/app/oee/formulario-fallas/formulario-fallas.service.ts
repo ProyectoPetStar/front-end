@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BASE_URL_SERVICE } from '../../constants';
 import { Producto } from '../../models/producto';
 import { Linea } from '../../models/linea';
 import { Falla } from '../../models/falla';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class FormularioFallasService {
@@ -13,7 +13,7 @@ export class FormularioFallasService {
    * URL del servicio del componente
    */ 
 
-  private URL = BASE_URL_SERVICE + '/Fallas';
+  private URL = environment.BASE_URL_SERVICE + '/Fallas';
 
   constructor(private http: HttpClient) { }
 
