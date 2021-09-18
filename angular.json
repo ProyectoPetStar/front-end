@@ -68,6 +68,15 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "staging": {
+              "optimization": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": ""
@@ -80,6 +89,9 @@
           "configurations": {
             "production": {
               "browserTarget": "petstar:build:production"
+            },
+            "staging": {
+              "browserTarget": "petstar:build:staging"
             }
           }
         },
