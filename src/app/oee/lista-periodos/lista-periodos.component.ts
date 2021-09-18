@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { Meta } from '../../models/meta';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { ListaPeriodosService } from './lista-periodos.service';
 import { Periodo } from '../../models/periodo';
 import { Linea } from '../../models/linea';
@@ -129,9 +129,9 @@ export class ListaPeriodosComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f "> Periodo : <b>' + periodo.anio + '  ' + periodo.descripcion_mes + ' </b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -182,7 +182,7 @@ export class ListaPeriodosComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
         switch (accion) {
           case 'apertura':
             periodo.estatus = !periodo.estatus ? 1 : 0;

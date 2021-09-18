@@ -9,7 +9,7 @@ import {
   findRol,
   clone
 } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { ListaValidacionService } from './lista-validacion.service';
 import { Periodo } from '../../models/periodo';
 import { Catalogo } from '../../models/catalogo';
@@ -199,7 +199,7 @@ export class ListaValidacionComponent implements OnInit {
 
   openModalYear(event): void {
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Seleccione el año',
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -207,7 +207,6 @@ export class ListaValidacionComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true ,
       preConfirm: (value) => {
         return new Promise<string|void>((resolve) => {
          
@@ -353,9 +352,9 @@ export class ListaValidacionComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Area Etad : <b>' + this.getDescriptivo(this.etads, this.idEtad) + ' </b> Grupo: <b>' + grupo_descripcion + '</b> Dia: <b>' + dia + '</b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -403,7 +402,7 @@ export class ListaValidacionComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
     } else {

@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { isValidId, clone } from '../../../utils';
 import { AuthService } from '../../../auth/auth.service';
 import { FormularioDetalleService } from './formulario-detalle.service';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { PetCatKpiOperativo } from '../../../models/pet-cat-kpi-operativo';
 import { PetCatMetaEstrategica } from '../../../models/pet-cat-meta-estrategica';
 import { PetCatObjetivoOperativo } from '../../../models/pet-cat-objetivo-operativo';
@@ -248,9 +248,9 @@ export class FormularioDetalleComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Elemento : <b>' + (item.valor || item.nombre_equipo) + ' </b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -310,7 +310,7 @@ export class FormularioDetalleComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
 

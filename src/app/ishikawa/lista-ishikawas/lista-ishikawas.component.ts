@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
 import { deleteItemArray, getAnioActual, calculaDiaPorMes, isNumeroAsignacionValid, findRol } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { ListaIshikawasService } from './lista-ishikawas.service';
 import { Periodo } from '../../models/periodo';
 import { Linea } from '../../models/linea';
@@ -174,7 +174,7 @@ export class ListaIshikawasComponent implements OnInit {
 
   openModalYear(event): void {
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Seleccione el año',
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -182,7 +182,6 @@ export class ListaIshikawasComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true ,
       preConfirm: (value) => {
 
         return new Promise<string|void>((resolve) => {
@@ -254,9 +253,9 @@ export class ListaIshikawasComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f ">Descripción ishikawa: <b>' + ishikawa.descripcion_corta + '</b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -307,7 +306,7 @@ export class ListaIshikawasComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     })
 
@@ -366,9 +365,9 @@ export class ListaIshikawasComponent implements OnInit {
   help(event): void {
     $('.tooltipped').tooltip('hide');
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Ayuda',
-      type: 'info',
+      icon: 'info',
       html: ' Para <b>editar</b> un ishikawa haga clic en el botón <i class="material-icons">edit</i> <br>' +
         '<b>Solo podra editar si el ishikawa no ha sido revisado o verificado</b></br>' +
         'Para <b>verficar</b> haga clic en el botón <i class="material-icons">list</i> <br>' +
@@ -389,9 +388,9 @@ export class ListaIshikawasComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">¿Está seguro de actualizar ishikawa?</span>',
-      type: 'question',
+      icon: 'question',
       input: 'text',
       inputPlaceholder: 'Escribe aquí',
       html: '<p style="color: #303f9f ">Ingrese descripción corta para identificar el registro</b></p>',
@@ -441,7 +440,7 @@ export class ListaIshikawasComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
 
@@ -451,9 +450,9 @@ export class ListaIshikawasComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">¿Está seguro de marcar ishikawa como revisado? </span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f "><b>Si confirma esta acción su nombre quedará registrado</b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -493,7 +492,7 @@ export class ListaIshikawasComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     })
 

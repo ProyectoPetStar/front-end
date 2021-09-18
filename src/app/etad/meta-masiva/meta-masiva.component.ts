@@ -12,7 +12,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 
 declare var $: any;
@@ -230,9 +230,9 @@ export class MetaMasivaComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">Ya existen metas cargadas. ¿Desea reemplazarlas?</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f ">Periodo: ' + this.getPeriodo(this.periodos, idPeriodo) + '</b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -265,7 +265,7 @@ export class MetaMasivaComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     })
 

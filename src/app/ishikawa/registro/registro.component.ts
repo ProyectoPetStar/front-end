@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { Linea } from '../../models/linea';
 import { Catalogo } from '../../models/catalogo';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { PetIshikawa } from '../../models/pet-ishikawa';
 
 
@@ -72,9 +72,9 @@ export class RegistroComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">¿Está seguro de agregar ishikawa?</span>',
-      type: 'question',
+      icon: 'question',
       input: 'text',
       inputPlaceholder: 'Escribe aquí',
       html: '<p style="color: #303f9f ">Ingrese descripción corta para identificar el registro</b></p>',
@@ -117,7 +117,7 @@ export class RegistroComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
 

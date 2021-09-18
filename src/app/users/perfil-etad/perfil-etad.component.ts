@@ -5,7 +5,7 @@ import { User } from '../../models/user';
 import { Catalogo } from '../../models/catalogo';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Linea } from '../../models/linea';
 
 declare var $: any;
@@ -95,9 +95,9 @@ export class PerfilEtadComponent implements OnInit {
       /* 
           * Configuración del modal de confirmación
           */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f "> ¿ Está seguro de actualizar información ?</span>',
-        type: 'question',
+        icon: 'question',
         // html: '<p style="color: #303f9f "> Usuario: <b>' + usuario.nombre + ' </b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -132,7 +132,7 @@ export class PerfilEtadComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
 
         }
       })

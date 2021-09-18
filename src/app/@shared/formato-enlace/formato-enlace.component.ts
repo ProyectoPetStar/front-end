@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PetReporteEnlace } from '../../models/pet-reporte-enlace';
 import { FormatoEnlaceService } from './formato-enlace.service';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 import { AuthService } from '../../auth/auth.service';
 import { isNum } from '../../utils';
 
@@ -44,9 +44,10 @@ export class FormatoEnlaceComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + mensajeModal + '</span>',
-        type: 'question',
+        // type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Periodo :</b>'+ this.datos.periodo.descripcion_mes +' '+ this.datos.periodo.anio +' </b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -55,7 +56,7 @@ export class FormatoEnlaceComponent implements OnInit {
         confirmButtonText: 'Si!',
         allowOutsideClick: false,
         allowEnterKey: false,
-        useRejections: true,  
+        // useRejections: true,  
       }).then((result) => {
         /*
          * Si acepta
@@ -93,7 +94,7 @@ export class FormatoEnlaceComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
     } else {

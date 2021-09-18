@@ -6,7 +6,7 @@ import { AuthService } from '../../auth/auth.service';
 import { isValidId, getMilisegundosHoras, getTodayMilisegundos, hmToMs } from '../../utils';
 import { Falla } from '../../models/falla';
 import { Catalogo } from '../../models/catalogo';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Linea } from '../../models/linea';
 import { RazonParo } from '../../models/razon-paro';
 import { Equipo } from '../../models/equipo';
@@ -281,9 +281,9 @@ export class FormularioFallasComponent implements OnInit, OnChanges {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Dia : <b>' + falla.diaString + '</b> <b> Linea</b> : ' + falla.id_linea + '</b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -331,7 +331,7 @@ export class FormularioFallasComponent implements OnInit, OnChanges {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
 

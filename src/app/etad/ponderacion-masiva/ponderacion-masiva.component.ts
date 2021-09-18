@@ -11,7 +11,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Catalogo } from '../../models/catalogo';
 
 
@@ -286,9 +286,9 @@ export class PonderacionMasivaComponent implements OnInit, AfterViewInit  {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">Ya existen ponderaciones cargadas. ¿Desea reemplazarlas?</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f ">Reemplazar para el año: ' + this.anioSeleccionado + '</b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -321,7 +321,7 @@ export class PonderacionMasivaComponent implements OnInit, AfterViewInit  {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     })
 

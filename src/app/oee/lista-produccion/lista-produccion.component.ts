@@ -3,7 +3,7 @@ import { AuthService } from '../../auth/auth.service';
 import { ListaProduccionService } from './lista-produccion.service';
 import { DataTableProduccion, getAnioActual, getMesActual, findRol } from '../../utils';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import {
   trigger,
   state,
@@ -186,7 +186,7 @@ export class ListaProduccionComponent implements OnInit {
 
   openModalYear(event): void {
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Seleccione el año',
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -194,7 +194,6 @@ export class ListaProduccionComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true ,
       preConfirm: (value) => {
 
         return new Promise<string|void>((resolve) => {
@@ -259,9 +258,9 @@ export class ListaProduccionComponent implements OnInit {
   help(event): void {
     $('.tooltipped').tooltip('hide');
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Ayuda',
-      type: 'info',
+      icon: 'info',
       html: ' Para agregar la producción haga clic en el boton <i class="material-icons"><i class="material-icons">add</i></i> <br>' + 
               'El boton estará disponible de acuerdo al siguiente horario:</br>'+
               '<ul>'+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ListaFallasService } from './lista-fallas.service';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { DataTableFallas , deleteItemArray, findRol} from '../../utils';
 import { Falla } from '../../models/falla';
 import { Linea } from '../../models/linea';
@@ -245,9 +245,9 @@ export class ListaFallasComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f "><b> Día: </b>' + falla.dia + '<b> Tiempo total de paro: </b>' + falla.tiempo_paro + ' Hrs</p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -285,7 +285,7 @@ export class ListaFallasComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
        
       }
     })

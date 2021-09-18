@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Falla } from '../../models/falla';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 declare var Materialize: any;
@@ -131,9 +131,9 @@ export class ValidaProduccionComponent implements OnInit {
       mensaje = 'Validación exitosa!'
     }
    
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">'+ titulo +'</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f ">'+ html +'</b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -164,7 +164,7 @@ export class ValidaProduccionComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
 
       }
     })

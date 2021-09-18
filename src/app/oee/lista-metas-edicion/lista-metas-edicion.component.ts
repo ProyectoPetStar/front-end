@@ -3,7 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../../auth/auth.service';
 import { Meta } from '../../models/meta';
 import { deleteItemArray, getAnioActual, calculaDiaPorMes, isNumeroAsignacionValid, findRol } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { ListaMetasEdicionService } from './lista-metas-edicion.service';
 import { Periodo } from '../../models/periodo';
 import { Linea } from '../../models/linea';
@@ -246,7 +246,7 @@ export class ListaMetasEdicionComponent implements OnInit {
 
   openModalYear(event): void {
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Seleccione el año',
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -254,7 +254,6 @@ export class ListaMetasEdicionComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true ,
       preConfirm: (value) => {
 
         return new Promise<string|void>((resolve) => {
@@ -335,9 +334,9 @@ export class ListaMetasEdicionComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f "> Dia : <b>' + rowForecast.dia_string + ' </b>Turno: <b>' + rowForecast.id_turno + '</b> Grupo: <b>' + rowForecast.nombre_grupo + '</b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -369,7 +368,7 @@ export class ListaMetasEdicionComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     })
 

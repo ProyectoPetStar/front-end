@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { ListEtadUsersService } from './list-etad-users.service';
 import { AuthService } from '../../auth/auth.service';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { deleteItemArray, DataTable, contraseniaValida, findRol } from '../../utils';
 
 declare var $: any;
@@ -87,9 +87,9 @@ export class ListEtadUsersComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f "> Usuario: <b>' + usuario.nombre + ' </b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -124,7 +124,7 @@ export class ListEtadUsersComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
         switch (accion) {
           case 'activar':
             usuario.activo = !usuario.activo ? 1 : 0;
@@ -139,7 +139,7 @@ export class ListEtadUsersComponent implements OnInit {
 
   openModalPassword(usuario: User, event?: any): void {
 
-    swal({
+    Swal.fire({
       title: '<h6  style="color: #303f9f">CAMBIAR CONTRASEÑA A: <br><b>' + usuario.nombre + '</b></h6>',
       input: 'password',
       inputPlaceholder: 'Escribe',
@@ -168,7 +168,7 @@ export class ListEtadUsersComponent implements OnInit {
           Materialize.toast('Ocurrió  un error en el servicio!', 4000, 'red');
         });
 
-      }else if (result.dismiss === swal.DismissReason.cancel) {
+      }else if (result.dismiss === Swal.DismissReason.cancel) {
        
       }
 

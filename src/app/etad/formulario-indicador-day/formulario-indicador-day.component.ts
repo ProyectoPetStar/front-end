@@ -11,7 +11,7 @@ import {
   clone,
   getFechaActual
 } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { FormularioIndicadorDayService } from './formulario-indicador-day.service';
 import { Periodo } from '../../models/periodo';
 import { PetMetaKpi } from '../../models/pet-meta-kpi';
@@ -259,9 +259,9 @@ export class FormularioIndicadorDayComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Area Etad : <b>' + this.getDescriptivo(this.etads, this.idEtad) + ' </b> Grupo: <b>' + this.getDescriptivo(this.grupos, this.idGrupo) + '</b> Dia: <b>' + this.dia + '</b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -270,7 +270,6 @@ export class FormularioIndicadorDayComponent implements OnInit {
         confirmButtonText: 'Si!',
         allowOutsideClick: false,
         allowEnterKey: false,
-        useRejections: true,
       }).then((result) => {
         /*
          * Si acepta
@@ -309,7 +308,7 @@ export class FormularioIndicadorDayComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
     } else {

@@ -6,7 +6,7 @@ import { Linea } from '../../models/linea';
 import { Forecast } from '../../models/forecast';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { isValidId } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 declare var Materialize: any;
@@ -133,9 +133,9 @@ export class MetaManualComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Meta para el día : <b> ' + rowforecast.dia + ' </b> Linea: <b>'+ descriptivoLinea +'</b> Grupo: <b>'+ descriptivoGrupo +'</b> Valor: <b>'+ rowforecast.meta+'</b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -165,7 +165,7 @@ export class MetaManualComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
 

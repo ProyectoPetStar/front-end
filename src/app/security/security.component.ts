@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SecurityService } from './security.service';
 import { AuthService } from '../auth/auth.service';
 import { deleteItemArray } from '../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Catalogo } from '../models/catalogo';
 
 declare var $: any;

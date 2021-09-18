@@ -10,7 +10,7 @@ import {
   transition
 } from '@angular/animations';
 import { AuthService } from '../../auth/auth.service';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { isNumeroAsignacionValid, findRol } from '../../utils';
 
 
@@ -193,9 +193,9 @@ export class FormularioPeriodoComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Periodo : <b>' + this.periodoTexto + '</b>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -243,7 +243,7 @@ export class FormularioPeriodoComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
           this.disabledBtn = false;
         }
       })

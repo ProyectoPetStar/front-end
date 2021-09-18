@@ -9,7 +9,7 @@ import { PetCatMetaEstrategica } from '../../models/pet-cat-meta-estrategica';
 import { PetPonderacionObjetivoOperativo } from '../../models/pet-ponderacion-objetivo-operativo';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { clone, deleteItemArray, isNumeroAsignacionValid } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Periodo } from '../../models/periodo';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PonderacionKpiOperativos } from '../../models/ponderacion-kpi-operativos';
@@ -212,9 +212,9 @@ export class PonderacionManualComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: detalle,
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -302,7 +302,7 @@ export class PonderacionManualComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
 
@@ -389,9 +389,9 @@ export class PonderacionManualComponent implements OnInit {
   help(event): void {
     $('.tooltipped').tooltip('hide');
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Ayuda',
-      type: 'info',
+      icon: 'info',
       html: ' <b> Para asignar ponderaciones </b> seleccione el año, el area y haga clic en buscar <br>' +
         ' Recuerde que para mostrar los KPI\'s <b>deben cargarse OBJETIVOS OPERATIVOS previamente </b> ',
       showCloseButton: false,

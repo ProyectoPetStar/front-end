@@ -6,7 +6,7 @@ import { Periodo } from '../../models/periodo';
 import { Catalogo } from '../../models/catalogo';
 import { getTablaUtf8, clone, getFechaActual, calculaDiaPorMes } from '../../utils';
 import { configChart } from './rpt.config.export';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 declare var Materialize: any;
@@ -262,7 +262,7 @@ export class RptJucodiComponent implements OnInit {
       argDias[i] = dia;
     }
 
-    swal({
+    Swal.fire({
       title: 'Seleccione un día del periodo ' + this.getPeriodo(this.periodos, this.parametrosBusqueda.idPeriodo),
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -270,7 +270,6 @@ export class RptJucodiComponent implements OnInit {
       inputOptions: argDias,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true,
       preConfirm: (value) => {
 
         return new Promise<string|void>((resolve) => {

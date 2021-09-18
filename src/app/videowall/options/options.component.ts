@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { OptionsService } from './options.service';
 import { AuthService } from '../../auth/auth.service';
 
@@ -30,9 +30,9 @@ export class OptionsComponent implements OnInit {
     /* 
     * Configuración del modal de confirmación
     */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f "> ¿ Actualizar datos ? </span>',
-      type: 'question',
+      icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
       cancelButtonColor: '#9fa8da ',
@@ -104,7 +104,7 @@ export class OptionsComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
         this.disabled = false;
       }
     })

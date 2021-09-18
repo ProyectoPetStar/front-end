@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { deleteItemArray, isValidId } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Catalogo } from '../../models/catalogo';
 import { SecurityService } from '../security.service';
 import { Roles } from '../../models/roles';

@@ -10,7 +10,7 @@ import {
   clone,
   getFechaActual
 } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { FormularioIndicadorMothService } from './formulario-indicador-moth.service';
 import { Periodo } from '../../models/periodo';
 import { PetMetaKpi } from '../../models/pet-meta-kpi';
@@ -226,9 +226,9 @@ export class FormularioIndicadorMothComponent implements OnInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Area Etad : <b>' + this.getDescriptivo(this.etads, this.idEtad) + '</b> Periodo: <b> '+ this.getDescriptivoPeriodo(this.idPeriodo) + ' ' + this.anioSeleccionado +'</b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -237,7 +237,6 @@ export class FormularioIndicadorMothComponent implements OnInit {
         confirmButtonText: 'Si!',
         allowOutsideClick: false,
         allowEnterKey: false,
-        useRejections: true  
       }).then((result) => {
         /*
          * Si acepta
@@ -277,7 +276,7 @@ export class FormularioIndicadorMothComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
     } else {
@@ -318,7 +317,7 @@ export class FormularioIndicadorMothComponent implements OnInit {
 
   openModalYear(event): void {
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Seleccione el año',
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -326,7 +325,6 @@ export class FormularioIndicadorMothComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true,
       preConfirm: (value) => {
 
         return new Promise<string|void>((resolve) => {

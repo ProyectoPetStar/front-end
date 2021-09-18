@@ -4,7 +4,7 @@ import { ListByCatalogService } from './list-by-catalog.service';
 import { Catalogo } from '../../models/catalogo';
 import { AuthService } from '../../auth/auth.service';
 import { deleteItemArray } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 declare var Materialize: any;
@@ -175,9 +175,9 @@ export class ListByCatalogComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f "> Detalle: <b>' + (item.valor || item.nombre_equipo) + ' </b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -264,7 +264,7 @@ export class ListByCatalogComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
         switch (accion) {
           case 'activar':
             item.activo = !item.activo ? 1 : 0;

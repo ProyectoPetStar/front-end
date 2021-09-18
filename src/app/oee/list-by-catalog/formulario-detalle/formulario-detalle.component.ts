@@ -5,7 +5,7 @@ import { Catalogo } from '../../../models/catalogo';
 import { isValidId } from '../../../utils';
 import { AuthService } from '../../../auth/auth.service';
 import { FormularioDetalleServiceService } from './formulario-detalle-service.service';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Equipo } from '../../../models/equipo';
 import { Producto } from '../../../models/producto';
 import { RazonParo } from '../../../models/razon-paro';
@@ -280,9 +280,9 @@ export class FormularioDetalleComponent implements OnInit, AfterViewInit {
       /* 
        * Configuración del modal de confirmación
        */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-        type: 'question',
+        icon: 'question',
         html: '<p style="color: #303f9f "> Elemento : <b>' + (item.valor || item.nombre_equipo) + ' </b></p>',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
@@ -409,7 +409,7 @@ export class FormularioDetalleComponent implements OnInit, AfterViewInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
         }
       })
 

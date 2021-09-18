@@ -7,7 +7,7 @@ import { Produccion } from '../../models/produccion';
 import { Catalogo } from '../../models/catalogo';
 import { Periodo } from '../../models/periodo';
 import { Linea } from '../../models/linea';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 declare var Materialize: any;
@@ -148,7 +148,7 @@ export class ListaProduccionValidadaComponent implements OnInit {
 
   openModalYear(event): void {
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Seleccione el año',
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -156,7 +156,6 @@ export class ListaProduccionValidadaComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true ,
       preConfirm: (value) => {
 
         return new Promise<string|void>((resolve) => {

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../../auth/auth.service';
 import { Meta } from '../../models/meta';
 import { deleteItemArray, getAnioActual, calculaDiaPorMes, isNumeroAsignacionValid, findRol, clone } from '../../utils';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { ListaPonderacionService } from './lista-ponderacion.service';
 import { Catalogo } from '../../models/catalogo';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -220,7 +220,7 @@ export class ListaPonderacionComponent implements OnInit {
 
   openModalYear(event): void {
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Seleccione el año',
       input: 'select',
       cancelButtonText: 'Cancelar',
@@ -228,7 +228,6 @@ export class ListaPonderacionComponent implements OnInit {
       inputOptions: this.anios,
       inputPlaceholder: 'SELECCIONE',
       showCancelButton: true,
-      useRejections: true ,
       preConfirm: (value) => {
 
         return new Promise<string|void>((resolve) => {
@@ -344,9 +343,9 @@ export class ListaPonderacionComponent implements OnInit {
     /* 
      * Configuración del modal de confirmación
      */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f ">' + this.mensajeModal + '</span>',
-      type: 'question',
+      icon: 'question',
       html: '<p style="color: #303f9f ">' + detalle + '</p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -409,7 +408,7 @@ export class ListaPonderacionComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     })
 
@@ -468,9 +467,9 @@ export class ListaPonderacionComponent implements OnInit {
   help(event): void {
     $('.tooltipped').tooltip('hide');
     event.preventDefault();
-    swal({
+    Swal.fire({
       title: 'Ayuda',
-      type: 'info',
+      icon: 'info',
       html: ' <b> Para modificar ponderaciones </b> seleccione el año, el area y haga clic en buscar <br>' +
         ' Recuerde que <b>la suma de todos los KPI\'s debe ser igual a 100 </b> ',
       showCloseButton: false,

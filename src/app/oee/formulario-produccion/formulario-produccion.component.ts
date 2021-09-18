@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { Producto } from '../../models/producto';
 import { AuthService } from '../../auth/auth.service';
 import { FormularioProduccionService } from './formulario-produccion.service';
@@ -178,9 +178,9 @@ export class FormularioProduccionComponent implements OnInit {
       /* 
         * Configuración del modal de confirmación
         */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f "> ¿ Está seguro registrar la producción ? </span>',
-        type: 'question',
+        icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
         cancelButtonColor: '#9fa8da ',
@@ -216,7 +216,7 @@ export class FormularioProduccionComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
 
         }
       })
@@ -231,9 +231,9 @@ export class FormularioProduccionComponent implements OnInit {
     /* 
       * Configuración del modal de confirmación
       */
-    swal({
+    Swal.fire({
       title: '<span style="color: #303f9f "> ¿ Registrar fallas del turno? </span>',
-      type: 'question',
+      icon: 'question',
       //html: '<p style="color: #303f9f "> Linea : ' + meta.meta + '<b> </b></p>',
       showCancelButton: true,
       confirmButtonColor: '#303f9f',
@@ -251,7 +251,7 @@ export class FormularioProduccionComponent implements OnInit {
         /*
         * Si cancela accion
         */
-      } else if (result.dismiss === swal.DismissReason.cancel) {
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
         this.router.navigate(['home/oee/opciones/produccion']);
       }
     })
@@ -264,9 +264,9 @@ export class FormularioProduccionComponent implements OnInit {
       /* 
         * Configuración del modal de confirmación
         */
-      swal({
+      Swal.fire({
         title: '<span style="color: #303f9f "> ¿ Está seguro modificar la producción ? </span>',
-        type: 'question',
+        icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#303f9f',
         cancelButtonColor: '#9fa8da ',
@@ -307,7 +307,7 @@ export class FormularioProduccionComponent implements OnInit {
           /*
           * Si cancela accion
           */
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
 
         }
       })
